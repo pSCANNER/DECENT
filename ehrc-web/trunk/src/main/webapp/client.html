@@ -1,0 +1,50 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body style="font-family: verdana;">
+<script>
+	$(function() {
+		var requestString = '{"matchingRecords": [ \
+{"firstName": "FIFTYFIVE", "middleName": "TEST", "lastName": "TEN", "dob": "03/29/1950", "gender": "M"}, \
+{"firstName": "Peter", "middleName": "", "lastName": "Jones", "dob": "03/29/1950", "gender": "M"}] \
+}';
+		$("#request").val(requestString);
+		
+		$("#buttun").click(function() {
+			$.ajax({
+				  type: "POST",
+				  contentType: 'application/json',
+				  dataType: "json",
+			      data: createJsonString(),
+				  url: "resources/match",
+				  data: $("#request").val(),
+				  success: function(data) {
+				    $("#response").html(JSON.stringify(data));
+				  }
+			});
+		})
+	})
+	
+	function createJsonString() {
+		var value = $("#request").val();
+		var obj = JSON.parse($("#request").val());
+		var jsonString = JSON.stringify(obj);
+		return jsonString;
+	}
+	
+</script>
+<h2>Test Client</h2>
+<form>
+<div>
+	<textarea id="request" name="request" rows="10" cols="50"></textarea>
+</div>
+<div>
+	<button id="buttun" type="button">Submit and Match</button>
+</div>
+<div>
+	<textarea id="response" name="response" rows="10" cols="50" disabled="disabled"></textarea>
+</div>
+</form>
+</body>
+</html>

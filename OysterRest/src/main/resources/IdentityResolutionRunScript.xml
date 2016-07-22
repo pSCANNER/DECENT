@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : IdentityResolutionRunScript.xml
+    Created on : 4/18/2012
+    Author     : Fumiko Kobayashi
+    Description: Identity Resolution sample run script -->
+
+<OysterRunScript>
+    <Settings RunScriptName="IdentityResolutionRunScript" />
+
+    <RunMode>IdentityResolution</RunMode>
+
+    <EREngine Type="FSCluster" />
+
+    <AttributePath>src/main/resources/Attributes.xml</AttributePath>
+
+    <!-- Input identites are output from Identity Build from Assertions example-->
+    <IdentityInput Type="TextFile">src/main/resources/IdentityCaptureOutput.idty</IdentityInput>
+    
+    <!-- No identity output in identity resolution -->
+    <IdentityOutput Type="None" />
+
+    <!-- Link Index  -->
+    <LinkOutput Type="None">/dev/null</LinkOutput>
+    <!-- Sources to Run -->
+    <ReferenceSources>
+        <Source>src/main/resources/IdentityResolutionSourceDescriptor.xml</Source>
+    </ReferenceSources>
+</OysterRunScript>

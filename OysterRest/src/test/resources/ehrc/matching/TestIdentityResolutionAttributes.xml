@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OysterAttributes System="IdentityResolution">
+	
+	<Attribute Item="FirstName" Algo="None"/>
+	<Attribute Item="MiddleName" Algo="None"/> 
+	<Attribute Item="LastName" Algo="None"/>
+	<Attribute Item="CS1" Algo="None"/>
+	<Attribute Item="CS2" Algo="None"/>		
+	<Attribute Item="AkaFirst" Algo="None"/>
+	<Attribute Item="AkaMiddle" Algo="None"/> 
+	<Attribute Item="AkaLast" Algo="None"/>	
+	<Attribute Item="DOB" Algo="None"/> 	
+	<Attribute Item="Gender" Algo="None"/> 	
+    
+    <IdentityRules> 
+                                                           
+		<Rule Ident="fnlndob_X" RDesc="Exact match on first and last name and date of birth">
+			<Term Item="FirstName" MatchResult="EXACT"/> 
+			<Term Item="LastName" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+        	</Rule>         
+		<Rule Ident="lnX_dobX_fnNN" RDesc="Match on first name as nickname, exact on last name and date of birth">
+			<Term Item="FirstName" MatchResult="NICKNAME"/> 
+			<Term Item="LastName" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+	        </Rule>          
+		<Rule Ident="lnX_dobX_fnLED" RDesc="Approximate LED match on first name, exact on last name and date of birth">
+			<Term Item="FirstName" MatchResult="LED(0.80)"/> 
+			<Term Item="LastName" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+       		</Rule>                         
+		<Rule Ident="fnX_dobX_lnLED" RDesc="Exact match on first name, approximate LED on last name, exact on date of birth">
+			<Term Item="FirstName" MatchResult="EXACT"/> 
+			<Term Item="LastName" MatchResult="LED(0.80)"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+		</Rule>             
+		<Rule Ident="dobX_fnNK_lnLED" RDesc="Nickname match on first name, approximate LED match on last name, exact on date of birth">
+			<Term Item="FirstName" MatchResult="NICKNAME"/> 
+			<Term Item="LastName" MatchResult="LED(0.80)"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+        	</Rule>                                       
+		<Rule Ident="fnX_lnX_dobTRAN" RDesc="Exact match on first and last name, transposed digit match on date of birth">
+			<Term Item="FirstName" MatchResult="EXACT"/> 
+			<Term Item="LastName" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="TRANSPOSE"/>								
+        	</Rule>  
+		<Rule Ident="fnX_dobX_lnMETA" RDesc="Exact match on first name, Metaphone match on last name, exact on date of birth">
+			<Term Item="FirstName" MatchResult="EXACT"/> 
+			<Term Item="LastName" MatchResult="METAPHONE"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+        	</Rule>             
+		<Rule Ident="dobX_lnX_fnMETA" RDesc="Metaphone match on first name, exact on last name and date of birth">
+			<Term Item="FirstName" MatchResult="METAPHONE"/> 
+			<Term Item="LastName" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+        	</Rule>              
+		<Rule Ident="fnX_lnX_dobLED" RDesc="Exact match on first and last name, approximate LED match on date of birth">
+			<Term Item="FirstName" MatchResult="EXACT"/> 
+			<Term Item="LastName" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="LED(0.80)"/>								
+        	</Rule>   
+		<Rule Ident="fnmnSWAP" RDesc="Exact match on transposed  middle and first, last name and date of birth">
+			<Term Item="LastName" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+			<Term Item="MiddleName" compareTo="FirstName" MatchResult="EXACT"/> 
+        	</Rule>     
+		<Rule Ident="mnfnSWAP" RDesc="Exact match on transposed first and middle, last name and date of birth">
+			<Term Item="LastName" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+			<Term Item="FirstName" compareTo="MiddleName" MatchResult="EXACT"/> 
+        	</Rule>          
+		<Rule Ident="fnmnSWAP_fnNN" RDesc="Exact match on last name and date of birth, nickname match on middle name">
+			<Term Item="LastName" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+			<Term Item="MiddleName" compareTo="FirstName" MatchResult="NICKNAME"/> 
+        	</Rule>                   
+		<Rule Ident="lnmnSWAP" RDesc="Exact match on first name and date of birth, exact match on transposed last name and middle">
+			<Term Item="FirstName" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+			<Term Item="LastName" compareTo="MiddleName" MatchResult="EXACT"/> 			
+        	</Rule>                       
+		<Rule Ident="lnmnSWAP_fnNN" RDesc="nickname match on first name, exact match on date of birth and last name.">
+			<Term Item="FirstName" MatchResult="NICKNAME"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+			<Term Item="MiddleName" compareTo="LastName" MatchResult="EXACT"/> 			
+        	</Rule>                           
+		<Rule Ident="lndobX_fn_FL" RDesc="Exact match on last name, date of birth, gender.  Initial match on first name">
+			<Term Item="FirstName" MatchResult="INITIAL"/> 
+			<Term Item="LastName" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+			<Term Item="Gender" MatchResult="EXACT"/>					
+        	</Rule>                            
+		<Rule Ident="lndobX_fn_SL1" RDesc="Exact match on last name, gender and date of birth, match on first letter of first name.">
+			<Term Item="FirstName" MatchResult="SUBSTRLEFT(1)"/> 
+			<Term Item="LastName" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+			<Term Item="Gender" MatchResult="EXACT"/>					
+        	</Rule>          
+		<Rule Ident="dobLED_lnX_fnMETA" RDesc="Exact match on last name and gender.  Approximate LED match on DOB. Metaphone match on first name.">
+			<Term Item="FirstName" MatchResult="METAPHONE"/> 
+			<Term Item="LastName" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="LED(0.90)"/>								
+			<Term Item="Gender" MatchResult="EXACT"/>											
+        	</Rule> 
+		<Rule Ident="fnln_Aka_dob_X" RDesc="Exact match on AkaFirst, AkaLast, DOB and gender.">
+			<Term Item="FirstName" compareTo="AkaFirst" MatchResult="EXACT"/> 
+			<Term Item="LastName" compareTo="AkaLast" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+			<Term Item="Gender" MatchResult="EXACT"/>								
+        	</Rule>                                                                      
+		<Rule Ident="fndobX_lnCS1" RDesc="Exact match on first name, DOB and gender. Exact match on CS1">
+			<Term Item="FirstName" MatchResult="EXACT"/> 
+			<Term Item="LastName" compareTo="CS1" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+			<Term Item="Gender" MatchResult="EXACT"/>											
+        	</Rule>       
+		<Rule Ident="fndobX_lnCS2" RDesc="Exact match on first name, DOB and gender, last name on CS2.">
+			<Term Item="FirstName" MatchResult="EXACT"/> 
+			<Term Item="LastName" compareTo="CS2" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+			<Term Item="Gender" MatchResult="EXACT"/>											
+        	</Rule>   
+		<Rule Ident="fndobX_CS1Ln" RDesc="Exact match on first name, DOB and gender, exact last name on CS1">
+			<Term Item="FirstName" MatchResult="EXACT"/> 
+			<Term Item="CS1" compareTo="LastName" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>	
+			<Term Item="Gender" MatchResult="EXACT"/>																		
+        	</Rule>                                                                                                        
+		<Rule Ident="fndobX_CS2Ln" RDesc="Exact match on first name, DOB and gender, exact CS2 on last name">
+			<Term Item="FirstName" MatchResult="EXACT"/> 
+			<Term Item="CS2" compareTo="LastName" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>	
+			<Term Item="Gender" MatchResult="EXACT"/>																		
+        	</Rule>                                                                                                             
+		<Rule Ident="fndobX_CS1LnCS2" RDesc="Exact match on first name, DOB and gender, exact CS1 on CS2">
+			<Term Item="FirstName" MatchResult="EXACT"/> 
+			<Term Item="CS1" compareTo="CS2" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>	
+			<Term Item="Gender" MatchResult="EXACT"/>															
+        	</Rule>                                                                                                                      
+		<Rule Ident="fndobX_CS2LnCS1" RDesc="Exact match on first name, DOB and gender, exact CS2 on CS1">
+			<Term Item="FirstName" MatchResult="EXACT"/> 
+			<Term Item="CS2" compareTo="CS1" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+			<Term Item="Gender" MatchResult="EXACT"/>											
+        	</Rule>                                                                                                                       
+		<Rule Ident="dobX_fnlnAKA" RDesc="Exact match on DOB and gender, approximate LED match for first name on AkaFirst and last on AkaLast">
+			<Term Item="FirstName" compareTo="AkaFirst" MatchResult="LED(0.90)"/> 
+			<Term Item="LastName" compareTo="AkaLast" MatchResult="LED(0.90)"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+			<Term Item="Gender" MatchResult="EXACT"/>											
+        	</Rule>                                                                                                                         
+		<Rule Ident="fn2mn_dobX_CS1LnCS2" RDesc="Exact match on DOB and gender, exact match for first name on middle, CS2 on CS1">
+			<Term Item="FirstName" compareTo="MiddleName" MatchResult="EXACT"/> 
+			<Term Item="CS2" compareTo="CS1" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+			<Term Item="Gender" MatchResult="EXACT"/>											
+        	</Rule>                                        
+		<Rule Ident="fn2mn_dobX_CS2LnCS1" RDesc="Exact match on DOB and gender, exact for first name on middle, CS1 on CS2">
+			<Term Item="FirstName" compareTo="MiddleName" MatchResult="EXACT"/> 
+			<Term Item="CS1" compareTo="CS2" MatchResult="EXACT"/>
+			<Term Item="DOB" MatchResult="EXACT"/>								
+			<Term Item="Gender" MatchResult="EXACT"/>											
+        	</Rule>                                                
+    </IdentityRules>
+    
+	<Indices>	
+
+		<Index Ident="P0">
+			<Segment Item="FirstName" Hash="Scan(LR,All, 30, KeepCase, SameOrder)" /> 
+			<Segment Item="LastName" Hash="Scan(LR,All, 30, KeepCase, SameOrder)" /> 
+			<Segment Item="DOB" Hash="Scan(LR,All, 10, KeepCase, SameOrder)" /> 			
+  		</Index>  		
+		<Index Ident="P1">
+			<Segment Item="LastName" Hash="Scan(LR,All, 30, KeepCase, SameOrder)" /> 
+  		</Index>  		
+		<Index Ident="P2">
+			<Segment Item="DOB" Hash="Scan(LR,All, 10, KeepCase, SameOrder)" /> 
+  		</Index>   		
+		<Index Ident="P3">
+			<Segment Item="AkaFirst" Hash="Scan(LR,All, 30, KeepCase, SameOrder)" /> 
+  		</Index>    				   		
+		<Index Ident="P4">
+			<Segment Item="AkaLast" Hash="Scan(LR,All, 30, KeepCase, SameOrder)" /> 
+  		</Index>    				  		
+	</Indices>   
+
+	 
+</OysterAttributes>

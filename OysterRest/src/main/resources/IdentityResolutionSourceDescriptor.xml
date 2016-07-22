@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : Merge-purgeSourceDescriptorq.xml
+    Created on : 11/25/2010
+    Author     : Fumiko Kobayashi
+    Description: Source Descriptor for the Merge-Purge sample run
+-->
+
+<OysterSourceDescriptor Name="source2">
+    <!-- Delimited -->
+    <Source Type="FileDelim" Char="|" Qual="" Labels="Y">C:\temp\ehrc-work\run\Input\Test-Partial.txt</Source>
+    
+    <!-- Items in Source (One for each item in the source including reference identifier -->
+    <ReferenceItems>
+        <!-- For Delimited -->
+        <Item Name="EDRSID" Attribute="@RefID" Pos="0"/>
+        <Item Name="FirstName" Attribute="FirstName" Pos="1"/>
+        <Item Name="MiddleName" Attribute="MiddleName" Pos="2"/>
+        <Item Name="LastName" Attribute="LastName" Pos="3"/>
+        <Item Name="DOB" Attribute="DOB" Pos="4"/>
+        <Item Name="Gender" Attribute="Gender" Pos="5"/>
+        <Item Name="BirthState" Attribute="BirthCountry" Pos="6"/>
+        <Item Name="BirthCountry" Attribute="BirthState" Pos="7"/>
+        <Item Name="State" Attribute="State" Pos="8"/>
+        <Item Name="Country" Attribute="Country" Pos="9"/>
+        <Item Name="PhysicianFirstName" Attribute="PhysicianFirstName" Pos="10"/>
+        <Item Name="PhysicianLastName" Attribute="PhysicianLastName" Pos="11"/>
+    </ReferenceItems>
+</OysterSourceDescriptor>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OysterSourceDescriptor Name="InputSource">
+<!-- Types of Sources (Only one can be defined) -->
+<!-- Delimited -->
+<Source Type="FileDelim" Char="|" Qual="" Labels="N">/Volumes/EHRC/work/ehrc/data/inputs/processed_inputs_10_11_12_13.csv</Source>
+<!-- Items in Source (One for each item in the source including reference identifier -->
+<ReferenceItems>
+<!-- For Delimited -->
+	<Item Name="FileID" Attribute="@RefID" Pos="0"/>
+	<Item Name="F1" Attribute="FirstName" Pos="1"/>
+	<Item Name="M1" Attribute="MiddleName" Pos="2"/>	
+	<Item Name="L1" Attribute="LastName" Pos="3"/>
+	<Item Name="CS1" Attribute="CS1" Pos="4"/>
+	<Item Name="CS2" Attribute="CS2" Pos="5"/>		
+	<Item Name="AF1" Attribute="AkaFirst" Pos="6"/>
+	<Item Name="AM1" Attribute="AkaMiddle" Pos="7"/>	
+	<Item Name="AL1" Attribute="AkaLast" Pos="8"/>	
+	<Item Name="DOB" Attribute="DOB" Pos="9"/>	
+	<Item Name="Gender" Attribute="Gender" Pos="10"/>			
+</ReferenceItems>
+</OysterSourceDescriptor>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OysterRunScript>
+	<Settings RunScriptName="TestIdentityRunScript" Explanation="No" Debug="Off" ChangeReportDetail="No" Trace="Off" />
+	<RunMode>IdentityResolution</RunMode>
+		
+	<!-- 
+		RSwooshEnhanced shows only unmatched records.
+		FSCluster shows all records, including unmatched.		
+	-->		
+	<EREngine Type="RSwooshStandard" />
+		
+	<AttributePath>src/test/resources/ehrc/matching/TestIdentityResolutionAttributes.xml</AttributePath>
+    
+    	<!-- Identity Input Selection; reference identities -->
+	<IdentityInput Type="TextFile">src/test/resources/ehrc/assertions/TestIdentities.idty</IdentityInput>
+
+	<!-- Identity Output Selection -->
+	<IdentityOutput Type="None"/>
+	
+	<!-- Link Output Selection (Always Required) -->
+	<LinkOutput Type="None">/dev/null</LinkOutput>
+    
+    	<!-- Sources to Run -->
+    	<ReferenceSources>    
+		<Source>src/test/resources/ehrc/matching/TestIdentityResolutionSourceDescriptor.xml</Source>
+	</ReferenceSources>
+</OysterRunScript>

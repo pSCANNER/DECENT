@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<Metadata>
+		<Modifications>
+			<Modification ID="1" OysterVersion="3.3" Date="2015-07-31 13.16.51" RunScript="IdentityCaptureRunScript" />
+		</Modifications>
+		<Attributes>
+			<Attribute Name="@RefID" Tag="A"/>
+			<Attribute Name="EDRSID" Tag="B"/>
+			<Attribute Name="FirstName" Tag="C"/>
+			<Attribute Name="MiddleName" Tag="D"/>
+			<Attribute Name="LastName" Tag="E"/>
+			<Attribute Name="DOB" Tag="F"/>
+			<Attribute Name="Gender" Tag="G"/>
+			<Attribute Name="BirthState" Tag="H"/>
+			<Attribute Name="BirthCountry" Tag="I"/>
+			<Attribute Name="State" Tag="J"/>
+			<Attribute Name="Country" Tag="K"/>
+			<Attribute Name="PhysicianFirstName" Tag="L"/>
+			<Attribute Name="PhysicianLastName" Tag="M"/>
+		</Attributes>
+	</Metadata>
+	<Identities>

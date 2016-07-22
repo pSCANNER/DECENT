@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : MergePurgeAttributes.xml
+    Created on : 11/26/10
+    Author     : Fumiko Kobayashi
+    Description:
+        Attribute xml file for the Merge-purge sample run
+-->
+
+<OysterAttributes System="School">
+    <Attribute Item="FirstName"  Algo= "none" />
+    <Attribute Item="MiddleName"  Algo= "none" />
+    <Attribute Item="LastName"  Algo="none" />
+    <Attribute Item="DOB"  Algo="none" />
+    <Attribute Item="Gender"  Algo="none" />
+    <Attribute Item="BirthState"  Algo="none" />
+    <Attribute Item="BirthCountry"  Algo="none" />
+    <Attribute Item="State"  Algo="none" />
+    <Attribute Item="Country"  Algo="none" />
+    <Attribute Item="PhysicianFirstName"  Algo="none" />
+    <Attribute Item="PhysicianLastName"  Algo="none" />
+        
+    <!-- -->
+    <IdentityRules>
+        <Rule Ident="1">
+            <Term Item="FirstName" MatchResult="Exact"/>
+            <Term Item="LastName" MatchResult="Exact"/>
+            <Term Item="DOB" MatchResult="Exact"/>
+            <Term Item="Gender" MatchResult="Exact"/>
+        </Rule>
+        <Rule Ident="2">
+            <Term Item="MiddleName" MatchResult="Exact"/>
+        </Rule>
+    </IdentityRules>
+
+
+        <Indices>
+                <Index Ident="Rule1">
+                        <Segment Item="FirstName" Hash="Scan(LR,All, 30, KeepCase, SameOrder)" />
+                        <Segment Item="LastName" Hash="Scan(LR,All, 30, KeepCase, SameOrder)" />
+                        <Segment Item="DOB" Hash="Scan(LR,All, 10, KeepCase, SameOrder)" />
+                        <Segment Item="Gender" Hash="Scan(LR,All, 1, KeepCase, SameOrder)" />
+                </Index>
+
+                <Index Ident="Rule2">
+                        <Segment Item="MiddleName" Hash="Scan(LR,All, 30, KeepCase, SameOrder)" />
+                </Index>
+        </Indices>
+
+</OysterAttributes>
